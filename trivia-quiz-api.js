@@ -42,7 +42,7 @@ function displayQuestions() {
     trueLabelEl.innerText = "True";
     const trueButtonEl = document.createElement("input");
     trueButtonEl.setAttribute("type", "radio"); // Set type="radio"
-    trueButtonEl.setAttribute("name", "answerTrue"); // Set name="answer" (grouping radio buttons)
+    trueButtonEl.setAttribute("name", "answer"); // Set name="answer" (grouping radio buttons)
     trueButtonEl.setAttribute("value", "true"); // Set value="true"
     // trueButtonEl.required = true;
     trueLabelEl.appendChild(trueButtonEl);
@@ -51,7 +51,7 @@ function displayQuestions() {
     falseLabelEl.innerText = "False";
     const falseButtonEl = document.createElement("input");
     falseButtonEl.setAttribute("type", "radio");
-    falseButtonEl.setAttribute("name", "answerFalse");
+    falseButtonEl.setAttribute("name", "answer");
     falseButtonEl.setAttribute("value", "false");
     falseLabelEl.appendChild(falseButtonEl);
 
@@ -85,5 +85,5 @@ async function submitHandler(event) {
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
   console.log(event.target);
-  const userAnswer = event.target.answerTrue.value;
+  const userAnswer = event.target.answer.value;
 });
