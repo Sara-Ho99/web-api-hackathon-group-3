@@ -31,8 +31,8 @@ const questionListEl = document.querySelector(".trivia-form");
 function displayQuestions() {
   questionListEl.innerHTML = "";
 
-  quesitons.forEach((item) => {
-    const articleEl = document.createElement("article");
+  quesitons.forEach((item, index) => {
+    const articleEl = document.createElement("fieldset");
     articleEl.classList.add("quiz-item");
     // question
     const questionEl = document.createElement("h3");
@@ -42,17 +42,17 @@ function displayQuestions() {
     trueLabelEl.innerText = "True";
     const trueButtonEl = document.createElement("input");
     trueButtonEl.setAttribute("type", "radio"); // Set type="radio"
-    trueButtonEl.setAttribute("name", "answer"); // Set name="answer" (grouping radio buttons)
-    trueButtonEl.setAttribute("value", "true"); // Set value="true"
-    // trueButtonEl.required = true;
+    trueButtonEl.setAttribute("name", `answer${index}`); // Set name="answer" (grouping radio buttons)
+    trueButtonEl.setAttribute("value", "True"); // Set value="true"
+    //trueButtonEl.required = true;
     trueLabelEl.appendChild(trueButtonEl);
 
     const falseLabelEl = document.createElement("label");
     falseLabelEl.innerText = "False";
     const falseButtonEl = document.createElement("input");
     falseButtonEl.setAttribute("type", "radio");
-    falseButtonEl.setAttribute("name", "answer");
-    falseButtonEl.setAttribute("value", "false");
+    falseButtonEl.setAttribute("name", `answer${index}`);
+    falseButtonEl.setAttribute("value", "False");
     falseLabelEl.appendChild(falseButtonEl);
 
     articleEl.appendChild(questionEl);
@@ -62,7 +62,7 @@ function displayQuestions() {
     questionListEl.append(articleEl);
   });
   const submitButtom = document.createElement("button");
-  falseButtonEl.setAttribute("type", "submit");
+  submitButtom.setAttribute("type", "submit");
   submitButtom.innerText = "submit";
   questionListEl.append(submitButtom);
 }
@@ -70,6 +70,7 @@ function displayQuestions() {
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 const formEl = document.querySelector(".trivia-form");
+const scoreboardEl = document.querySelector(".scoreboard");
 
 async function submitHandler(event) {
   /* const newJoke = {
@@ -84,6 +85,27 @@ async function submitHandler(event) {
 
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(event.target);
-  const userAnswer = event.target.answer.value;
+  let score = 0;
+  //   console.log(event.target);
+  //   console.log(event.target.answer0.value);
+  //   const userAnswer = event.target.answer0.value;
+
+  quesitons.forEach((item, index) => {
+    const userAnswer = event.target[`answer${index}`].value;
+    console.log(userAnswer);
+    console.log(item.correctAnswer);
+
+    if (userAnswer === item.correctAnswer) {
+      console.log(`correct question: ${index}`);
+      score++;
+    } else {
+      console.log(`wrong answer: ${index}`);
+    }
+  });
+
+  const gameMessage = document.createElement("h3");
+  gameMessage.innerText = `Your score is: ${score}/${quesitons.length}`;
+  scoreboardEl.append(gameMessage);
 });
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
