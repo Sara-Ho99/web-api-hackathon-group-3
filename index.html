@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trivia Game</title>
+    <title>BrainTease</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./trivia-quiz-api.js" defer></script>
@@ -11,15 +11,25 @@
   <body>
     <header class="header">
       <a class="header__title-link" href="./index.html">
-        <h1>BrainTease</h1>
+        <h2 class="header__title">BrainTease</h2>
       </a>
       <p class="header__tag-line">Play. Learn. Win. Trivia Awaits!</p>
     </header>
-    <section class="hero"></section>
+    <section class="hero">
+      <div class="hero__heading-container">
+        <h1 class="hero__heading">
+          <span class="hero__heading-line">TRIVIA</span>
+          <span class="hero__heading-line">QUIZ</span>
+        </h1>
+        <a href="#trivia-section">
+          <button class="hero__button">Let's Play!</button>
+        </a>
+      </div>
+    </section>
 
     <h1>Trivia Game</h1>
 
-    <section class="trivia">
+    <section class="trivia" id="trivia-section">
       <form class="trivia-form">
         <h2>quesion</h2>
         <p>Select True or False:</p>
@@ -35,5 +45,37 @@
 
       <div class="devjokes-container"></div>
     </section>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__info">
+          <p>&copy; 2025 BrainTease. All rights reserved.</p>
+          <p>Designed by Group-3</p>
+        </div>
+
+        <div class="footer__social">
+          <a href="https://www.facebook.com/">
+            <img
+              class="footer__social-img"
+              src="./assets/icons/SVG/Icon-facebook.svg"
+              alt="Facebook"
+            />
+          </a>
+          <a href="https://www.twitter.com/">
+            <img
+              class="footer__social-img footer__social-img--space"
+              src="./assets/icons/SVG/Icon-twitter.svg"
+              alt="X"
+            />
+          </a>
+          <a href="https://www.instagram.com/">
+            <img
+              class="footer__social-img"
+              src="./assets/icons/SVG/Icon-instagram.svg"
+              alt="Instagram"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
