@@ -28,8 +28,8 @@ a {
 }
 
 option {
-  line-height: 20px;
-  font-size: 18px;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .header {
@@ -44,8 +44,8 @@ option {
 .header__title {
   margin-bottom: 0;
   margin-top: 2rem;
-  line-height: 48px;
-  font-size: 42px;
+  line-height: 3rem;
+  font-size: 2.625rem;
 }
 .header__tag-line {
   font-weight: bold;
@@ -72,8 +72,8 @@ option {
   text-align: center;
 }
 .hero__heading {
-  line-height: 164px;
-  font-size: 160px;
+  line-height: 10.25rem;
+  font-size: 10rem;
   margin: 5rem;
 }
 .hero__heading-line {
@@ -103,8 +103,8 @@ option {
   height: 7rem;
   width: 7rem;
   background-color: rgb(233, 155, 209);
-  line-height: 20px;
-  font-size: 18px;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
   cursor: pointer;
   transition: transform 0.5s ease;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
@@ -124,18 +124,20 @@ option {
   align-items: center;
 }
 .difficulty-form__label {
-  line-height: 20px;
-  font-size: 18px;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: rgb(167, 106, 167);
   margin-left: 2rem;
 }
 .difficulty-form__select {
   height: 2.875rem;
-  width: 7.5rem;
-  border: 1px solid black;
+  width: auto;
+  font-size: 1.125rem;
+  border: 3px solid #f3a0d4;
   border-radius: 5px;
   margin: 0 1rem;
+  padding: 0 20px;
 }
 .difficulty-form__button {
   border: none;
@@ -143,8 +145,8 @@ option {
   height: 3rem;
   width: 7rem;
   background-color: rgb(233, 155, 209);
-  line-height: 20px;
-  font-size: 18px;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
   cursor: pointer;
   font-weight: 700;
   margin-left: 1rem;
@@ -180,8 +182,8 @@ option {
   height: 3rem;
   width: 7rem;
   background-color: rgb(233, 155, 209);
-  line-height: 20px;
-  font-size: 18px;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
   cursor: pointer;
   font-weight: 700;
   margin-top: 0.5rem;
@@ -209,7 +211,6 @@ option {
 .scoreboard__correct-answer {
   font-size: 1.2rem;
   color: rgb(10, 129, 90);
-  /* border: 1px solid rgba(0, 0, 0, 0.2); */
 }
 .scoreboard:hover {
   transform: scale(1.02);

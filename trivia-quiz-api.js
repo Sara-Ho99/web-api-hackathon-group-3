@@ -3,6 +3,15 @@ let questionListEl = document.querySelector(".trivia-form");
 let quesitons = [];
 const scoreboardEl = document.querySelector(".scoreboard__container");
 
+
+//-=-=-=-=-=-=-=-=-API Manager=-=-=-=-=-=-=-=-=-=-=-=
+
+const changeSymbols = (str) => {
+  const temp = document.createElement("div");
+  temp.innerHTML = str;
+  return temp.textContent;
+};
+
 async function getQuestions(apiLink) {
   quesitons = [];
   try {
@@ -11,13 +20,14 @@ async function getQuestions(apiLink) {
     data.forEach((item) => {
       quesitons.push({
         category: item.category,
-        question: item.question,
+        question: changeSymbols(item.question) ,
         correctAnswer: item.correct_answer,
         difficulty: item.difficulty,
         type: item.type,
       });
+      console.log(typeof(item.question));
     });
-    console.log(quesitons);
+    
     displayQuestions();
   } catch (error) {
     console.log(error);
@@ -28,7 +38,7 @@ const difficultyFormEl = document.querySelector(".difficulty-form");
 difficultyFormEl.addEventListener("submit", (event) => {
   event.preventDefault();
   const userDifficulty = event.target.difficulty.value;
-  console.log(userDifficulty);
+  
   try {
     if (userDifficulty === "easy") {
       // 3 quesitons, any category, true or false, easy
@@ -120,11 +130,8 @@ formEl.addEventListener("submit", (event) => {
     correctAnswersArray.push(item.correctAnswer);
 
     if (userAnswer === item.correctAnswer) {
-      console.log(`correct question: ${index}`);
       score++;
-    } else {
-      console.log(`wrong answer: ${index}`);
-    }
+    } 
   });
 
   const gameMessage = document.createElement("h3");
