@@ -86,14 +86,13 @@ async function submitHandler(event) {
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
   let score = 0;
-  //   console.log(event.target);
-  //   console.log(event.target.answer0.value);
-  //   const userAnswer = event.target.answer0.value;
+  const userAnswersArray = [];
+  const correctAnswersArray = [];
 
   quesitons.forEach((item, index) => {
     const userAnswer = event.target[`answer${index}`].value;
-    console.log(userAnswer);
-    console.log(item.correctAnswer);
+    userAnswersArray.push(userAnswer);
+    correctAnswersArray.push(item.correctAnswer);
 
     if (userAnswer === item.correctAnswer) {
       console.log(`correct question: ${index}`);
@@ -104,8 +103,22 @@ formEl.addEventListener("submit", (event) => {
   });
 
   const gameMessage = document.createElement("h3");
-  gameMessage.innerText = `Your score is: ${score}/${quesitons.length}`;
+  gameMessage.classList.add("scoreboard__score");
+  gameMessage.innerText = `Your Score is: ${score}/${quesitons.length}`;
+
+  const showUserAnswer = document.createElement("h3");
+  showUserAnswer.classList.add("scoreboard__user-answer");
+  showUserAnswer.innerText = `Your Answers are: ${userAnswersArray}`;
+
+  const showCorrectAnswer = document.createElement("h3");
+  showCorrectAnswer.classList.add("scoreboard__correct-answer");
+  showCorrectAnswer.innerText = `Correct Answers are: ${correctAnswersArray}`;
+
   scoreboardEl.append(gameMessage);
+  scoreboardEl.append(showUserAnswer);
+  scoreboardEl.append(showCorrectAnswer);
+
+  formEl.reset();
 });
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
