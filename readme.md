@@ -1,4 +1,5 @@
 (Sprint-1)
+
 # BrainStorming
 
 1. Random dad jokes and then pick a word to search a image about it and display it with the joke.
@@ -7,7 +8,13 @@
 4. Put a trivia question and let an dad joke answer it lol
 5. Trivia game --> final option
 
-# Steps for Trivia Game
+# BrainTease
+
+1. Group 3 BrainTeaser: Joice Sara Sonal
+2. Purpose of our app: training your brain, expanding your general knowledge and being cute (by Sonal)
+3. Demo and highlights
+
+# Overview for Trivia Game
 
 1.  Define Requirements:
 
@@ -22,7 +29,7 @@
     - Fetch Questions from API
     - Question Handling Logic
 
-4.  User Interface (UI)
+4.  User Interface (UI) - **highlight 1 (by Sonal)**
 
     - Design Layout
       - 3 Question display in one time
@@ -31,18 +38,26 @@
       - Scoreboard/textarea.
     - UI: Sass
 
-5.  Game Logic
-    - Answer Validation
-      - Compare user answers with correct answers.
+5.  Game Logic - **highlight 2 (by Joice and Sara)**
+
+    - Select Difficulty
+      - let user select difficulty
+      - Move to the next set of questions.
+      - display results.
+    - Questions Display
     - Score Display
+      - Compare user answers with correct answers.
       - show counts of correct answers after submitting
-    - Game Progression
-      - Move to the next question after a response.
-      - End quiz after a certain number of questions and display results.
-6.  Possible Improvements
+
+6.  Possible Improvements for Future (by Joice)
 
     - make users select category
-    - let user select difficulty
+    - let the users select the number of the questions
     - set a scoring logic based on the difficulty of question
+    - include images for each question (another API such as Unsplash required)
+    - more animation and music
 
-7.  Presentation
+7.  Challenges (by Sara)
+    - Modify API based on the difficulty that users select.
+    - Git: conflict resolutions when merging two branches.
+    - Clearing fetched questions and scorecard from previous play.

@@ -4,62 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BrainTease</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./trivia-quiz-api.js" defer></script>
   </head>
   <body>
+    <!-- -=-=-=-=-=-=-=-=-HEADER=-=-=-=-=-=-=-=-=-=-=-= -->
     <header class="header">
       <a class="header__title-link" href="./index.html">
-        <h2 class="header__title">BrainTease</h2>
+        <h2 class="header__title">TRIVIA QUIZ</h2>
       </a>
-      <p class="header__tag-line">Play. Learn. Win. Trivia Awaits!</p>
+      <p class="header__tag-line">Play ▶️. Learn 🧠. Win 🏆. Trivia Awaits❗</p>
     </header>
+    <!-- -=-=-=-=-=-=-=-=-=-HERO=-=-=-=-=-=-=-=-=-=-= -->
     <section class="hero">
       <div class="hero__heading-container">
         <h1 class="hero__heading">
-          <span class="hero__heading-line">TRIVIA</span>
-          <span class="hero__heading-line">QUIZ</span>
+          <span class="hero__heading-line">BRAIN</span>
+          <span class="hero__heading-line">TEASE</span>
         </h1>
-        <a href="#trivia-section">
+        <a href="#difficulty-section">
           <button class="hero__button">Let's Play!</button>
         </a>
       </div>
     </section>
-    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-
-    <section class="hero">
-      <h1 class="hero__heading">Trivia Game</h1>
-    </section>
-
-    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-
-    <section class="scoreboard">
-      <h2 class="scoreboard__title">Scoreboard</h2>
-    </section>
-    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-
-    <section class="trivia" id="trivia-section">
-      <form class="trivia-form">
-        <h2>quesion</h2>
-        <p>Select True or False:</p>
-        <label>
-          <input type="radio" name="true" value="true" required /> True
-        </label>
-        <label>
-          <input type="radio" name="false" value="false" required /> False
-        </label>
-
-        <button type="submit">Submit</button>
+    <!-- -=-=-=-=-=-=-=-=-=SELECT DIFFICULTY-=-=-=-=-=-=-=-=-=-=-= -->
+    <section class="difficulty" id="difficulty-section">
+      <h2 class="difficulty__title">✨Select Difficulty✨</h2>
+      <form class="difficulty-form" action="submit">
+        <label for="difficulty" class="difficulty-form__label"
+          >Choose a difficulty:</label
+        >
+        <select
+          class="difficulty-form__select"
+          id="difficulty"
+          name="difficulty"
+          class="difficulty-form__select"
+          required
+        >
+          <option value="" disabled selected>Select an option</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <a href="#trivia-section">
+          <button type="submit" class="difficulty-form__button">Play</button>
+        </a>
       </form>
-
-      <div class="devjokes-container"></div>
     </section>
+
+    <!-- -=-=-=-=-=-=-=-QUESTIONS=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <section id="trivia-section" class="trivia">
+      <h2>✨Questions✨</h2>
+      <form class="trivia-form"></form>
+    </section>
+    <!-- -=-=-=-=-=-=-=-=-=SCOREBOARD-=-=-=-=-=-=-=-=-=-=-= -->
+    <section id="scoreboard-section" class="scoreboard">
+      <h2 class="scoreboard__title">✨Scoreboard✨</h2>
+      <div class="scoreboard__container"></div>
+    </section>
+    <!-- -=-=-=-=-=-=-=-=FOOTER-=-=-=-=-=-=-=-=-=-=-=-= -->
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__info">
           <p>&copy; 2025 BrainTease. All rights reserved.</p>
-          <p>Designed by Group-3</p>
+          <p>Designed by Group-3: BrainTeasers</p>
         </div>
 
         <div class="footer__social">
@@ -87,10 +96,5 @@
         </div>
       </div>
     </footer>
-    <section class="trivia">
-      <h2>Quiz</h2>
-      <form class="trivia-form"></form>
-    </section>
-    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
   </body>
 </html>

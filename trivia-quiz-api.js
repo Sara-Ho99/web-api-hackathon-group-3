@@ -1,10 +1,12 @@
-const quesitons = [];
+let apiLink = "";
+let questionListEl = document.querySelector(".trivia-form");
+let quesitons = [];
+const scoreboardEl = document.querySelector(".scoreboard__container");
 
-async function getQuestions() {
+async function getQuestions(apiLink) {
+  quesitons = [];
   try {
-    const response = await axios.get(
-      "https://opentdb.com/api.php?amount=3&category=17&difficulty=easy&type=boolean"
-    );
+    const response = await axios.get(apiLink);
     data = response.data.results;
     data.forEach((item) => {
       quesitons.push({
@@ -15,41 +17,69 @@ async function getQuestions() {
         type: item.type,
       });
     });
-    /* console.log(quesitons); */
+    console.log(quesitons);
     displayQuestions();
   } catch (error) {
     console.log(error);
   }
 }
 
-getQuestions();
+const difficultyFormEl = document.querySelector(".difficulty-form");
+difficultyFormEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const userDifficulty = event.target.difficulty.value;
+  console.log(userDifficulty);
+  try {
+    if (userDifficulty === "easy") {
+      // 3 quesitons, any category, true or false, easy
+      apiLink =
+        "https://opentdb.com/api.php?amount=3&difficulty=easy&type=boolean";
+    } else if (userDifficulty === "medium") {
+      apiLink =
+        "https://opentdb.com/api.php?amount=3&difficulty=medium&type=boolean";
+    } else if (userDifficulty === "hard") {
+      apiLink =
+        "https://opentdb.com/api.php?amount=2&difficulty=hard&type=boolean";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  getQuestions(apiLink);
+  difficultyFormEl.reset();
 
-//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  scoreboardEl.innerHTML = "";
+});
 
-const questionListEl = document.querySelector(".trivia-form");
+//-=-=-=-=-=-=-=-=-Display Questions=-=-=-=-=-=-=-=-=-=-=-=
 
 function displayQuestions() {
   questionListEl.innerHTML = "";
-
   quesitons.forEach((item, index) => {
     const articleEl = document.createElement("fieldset");
-    articleEl.classList.add("quiz-item");
+    articleEl.classList.add("trivia-form__item");
     // question
     const questionEl = document.createElement("h3");
+    questionEl.classList.add("trivia-form__question");
     questionEl.innerText = item.question;
     // true option
     const trueLabelEl = document.createElement("label");
+    trueLabelEl.classList.add("trivia-form__label");
     trueLabelEl.innerText = "True";
+
     const trueButtonEl = document.createElement("input");
-    trueButtonEl.setAttribute("type", "radio"); // Set type="radio"
-    trueButtonEl.setAttribute("name", `answer${index}`); // Set name="answer" (grouping radio buttons)
-    trueButtonEl.setAttribute("value", "True"); // Set value="true"
-    //trueButtonEl.required = true;
+    trueButtonEl.classList.add("trivia-form__input");
+    trueButtonEl.setAttribute("type", "radio"); // attribute format type="radio"
+    trueButtonEl.setAttribute("name", `answer${index}`);
+    trueButtonEl.setAttribute("value", "True");
+
     trueLabelEl.appendChild(trueButtonEl);
 
     const falseLabelEl = document.createElement("label");
+    falseLabelEl.classList.add("trivia-form__label");
     falseLabelEl.innerText = "False";
+
     const falseButtonEl = document.createElement("input");
+    falseButtonEl.classList.add("trivia-form__input");
     falseButtonEl.setAttribute("type", "radio");
     falseButtonEl.setAttribute("name", `answer${index}`);
     falseButtonEl.setAttribute("value", "False");
@@ -61,30 +91,25 @@ function displayQuestions() {
 
     questionListEl.append(articleEl);
   });
+  const scoreboardLink = document.createElement("a");
+  scoreboardLink.setAttribute("href", "#scoreboard-section");
+
   const submitButtom = document.createElement("button");
+  submitButtom.classList.add("trivia-form__button");
   submitButtom.setAttribute("type", "submit");
-  submitButtom.innerText = "submit";
-  questionListEl.append(submitButtom);
+  submitButtom.innerText = "Submit";
+
+  scoreboardLink.append(submitButtom);
+  questionListEl.append(scoreboardLink);
 }
 
-//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+//-=-=-=-=-=-=-=-=-Scoreboard Section=-=-=-=-=-=-=-=-=-=-=-=
 
 const formEl = document.querySelector(".trivia-form");
-const scoreboardEl = document.querySelector(".scoreboard");
-
-async function submitHandler(event) {
-  /* const newJoke = {
-    question: event.target.question.value,
-    answer: event.target.answer.value,
-  }; */
-  /* await axios.post(
-    "http://developerjokes.herokuapp.com/jokes?api_key=neocat",
-    newJoke
-  ); */
-}
 
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
+  scoreboardEl.innerHTML = "";
   let score = 0;
   const userAnswersArray = [];
   const correctAnswersArray = [];
@@ -120,5 +145,3 @@ formEl.addEventListener("submit", (event) => {
 
   formEl.reset();
 });
-
-//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
