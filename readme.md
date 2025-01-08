@@ -12,7 +12,8 @@
     - Choose the Trivia Questions API:
       https://opentdb.com/api.php?amount=3&category=17&difficulty=easy&type=boolean
 
-2.  Repo: GitHub
+2.  GitHub Repo Link: 
+https://github.com/Sara-Ho99/web-api-hackathon-group-3.git
 
 3.  API Integration & Data Handling
 
