@@ -1,20 +1,10 @@
-(Sprint-1)
-
-# BrainStorming
-
-1. Random dad jokes and then pick a word to search a image about it and display it with the joke.
-2. Put random emojis in between the dad jokes
-3. Put a trivia question an let user answer "post it" but nothing happens
-4. Put a trivia question and let an dad joke answer it lol
-5. Trivia game --> final option
-
 # BrainTease
 
 1. Group 3 BrainTeaser: Joice Sara Sonal
 2. Purpose of our app: training your brain, expanding your general knowledge and being cute (by Sonal)
 3. Demo and highlights
 
-# Overview for Trivia Game
+## Overview for Trivia Game
 
 1.  Define Requirements:
 
