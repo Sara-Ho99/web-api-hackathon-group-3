@@ -18,6 +18,16 @@ section {
   border-radius: 10px;
 }
 
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.scoreboard__score {
+  color: red;
+}
+
 h2 {
   margin-top: 0;
 }
