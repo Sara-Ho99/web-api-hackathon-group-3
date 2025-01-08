@@ -1,0 +1,5 @@
+# Ignore scss map files
+*.css.map
+
+# Ignore VSCode folder
+.vscode/
